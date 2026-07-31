@@ -17,3 +17,12 @@ export interface Customer extends User {
     address: string;
     loyaltypoints: number;
 }
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
+export interface Cart {
+  cartId: number;
+  items: CartItem[];
+}
