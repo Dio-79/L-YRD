@@ -27,6 +27,7 @@ export default function ProductDetailsPage() {
       <p>{product.price}</p>
       <button onClick={() => addItem(product)}>Add to Cart</button>
       <Link href="/products">Back to catalog</Link>
+      <Link href="/cart">view cart</Link>
     </main>
   );
 }
