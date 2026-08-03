@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CgMenu, CgSearch, CgProfile, CgShoppingBag } from "react-icons/cg";
 
 export default function Header() {
   return (
@@ -12,12 +13,14 @@ export default function Header() {
       {/* Main header */}
       <header className="bg-white border-b border-border px-8 py-4">
         <div className="flex items-center justify-between">
-          <button className="text-xl">☰</button>
+          <button className="text-2xl" aria-label="Menu">
+            <CgMenu />
+          </button>
           <h1 className="text-2xl tracking-[6px] font-bold">LÄYRD</h1>
-          <div className="flex gap-4 text-lg">
-            <span>🔍</span>
-            <span>👤</span>
-            <span>🛍</span>
+          <div className="flex gap-4 text-2xl">
+            <button aria-label="Search"><CgSearch /></button>
+            <button aria-label="Account"><CgProfile /></button>
+            <button aria-label="Cart"><CgShoppingBag /></button>
           </div>
         </div>
 
