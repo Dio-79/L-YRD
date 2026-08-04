@@ -4,6 +4,7 @@ export interface Product {
     price: number;
     tag: string;
     description: string;
+    imageUrl: string;
 }
 
 export interface User{

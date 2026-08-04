@@ -60,23 +60,23 @@ function FilterGroup({ title, options }: { title: string; options: string[] }) {
 function ProductCard({
   product,
 }: {
-  product: { productID: number; name: string; price: number };
+  product: { productID: number; name: string; price: number; description: string; tag: string; imageUrl: string };
 }) {
   return (
     <div className="border border-gold rounded overflow-hidden flex flex-col">
       {/* Image placeholder — swap with your saved image */}
       <div className="relative w-full h-56 bg-gray-100">
-        {/* <img src="/images/your-image.jpg" alt={product.name} className="w-full h-full object-cover" /> */}
-        <span className="absolute top-2 right-2 bg-black text-white text-[10px] px-2 py-1 tracking-wide">
-          TAG
-        </span>
+        <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
+        {product.tag && (
+          <span className="absolute top-2 right-2 bg-black text-white text-[10px] px-2 py-1 tracking-wide">
+            {product.tag}
+          </span>
+        )}
       </div>
 
       <div className="p-4 flex flex-col">
         <h3 className="font-bold text-sm tracking-wide uppercase">{product.name}</h3>
-        <p className="text-sm text-gray mt-1">
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, voluptatibus.
-        </p>
+        <p className="text-sm text-gray mt-1">{product.description}</p>
         <div className="flex justify-between items-center mt-3">
           <span className="text-gold font-semibold text-sm">FROM ${product.price}</span>
           <Link
