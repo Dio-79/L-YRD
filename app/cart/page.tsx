@@ -53,7 +53,7 @@ export default function CartPage() {
               >
                 <div className="flex items-center gap-4 w-1/3">
                   <div className="w-16 h-16 bg-gray-100 flex-shrink-0">
-                    {/* <img src="/images/your-image.jpg" alt={item.product.name} className="w-full h-full object-cover" /> */}
+                    <img src={item.product.imageUrl} alt={item.product.name} className="w-full h-full object-cover" />
                   </div>
                   <p className="font-semibold text-sm">{item.product.name}</p>
                 </div>

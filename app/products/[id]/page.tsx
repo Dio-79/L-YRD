@@ -38,7 +38,7 @@ export default function ProductDetailsPage() {
           {/* Image */}
           <div className="w-1/2">
             <div className="w-full aspect-square bg-gray-100">
-              {/* <img src="/images/your-image.jpg" alt={product.name} className="w-full h-full object-cover" /> */}
+              <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
             </div>
           </div>
 
