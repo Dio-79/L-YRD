@@ -1,8 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
+
 
 interface Mechanism {
-  OnClick: () => void;
+  onClick: () => void;
   label: string;
   importance?: 'primary' | 'secondary';
   disabled?: boolean;
@@ -10,7 +12,7 @@ interface Mechanism {
 
 function Buttons({
   label,
-  OnClick,
+  onClick,
   importance = 'primary',
   disabled = true,
 }: Mechanism) {
@@ -19,10 +21,32 @@ function Buttons({
       type="button"
       className={`btn btn-${importance}`}
       disabled={disabled}
-      onClick={OnClick}
+      onClick={onClick}
     >
       {label}
     </button>
+  );
+}
+
+interface ProductProp {
+  title: string;
+  image: string;
+  description: string;
+}
+
+function Product({ title, image, description }: ProductProp) {
+	const navigate = useNavigate();
+  return (
+    <div className='product-card'>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+        <Buttons
+          label="DETAILS"
+          onClick={() => navigate('/products/oreo')}
+          disabled={false}
+        />
+    </div>
   );
 }
 
@@ -52,7 +76,7 @@ export default function Home() {
         <div className='body'>
           <p>ESPRESSO SHOTS & CAKE-IN-A-CAN MADE FRESH. KEPT SIMPLE.</p>
           <p className='text'>Discover a new standard of premium cakes crafted with fresh and simple ingredients. Delivered in our signature cans.</p>
-          <Buttons label="EXPLORE OUR CATALOGUE" OnClick={() => {}} />
+          <Buttons label="EXPLORE OUR CATALOGUE" onClick={() => {}} />
         </div>
         <div>
           <p>OUR FEATURED COLLECTION</p>
