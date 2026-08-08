@@ -62,6 +62,10 @@ export default function Home() {
         </div>
         <div className='Logo'></div>
         <button></button>
+                <button></button>
+        <button></button>
+
+
         <nav>
           <ul className='LinkHeader'>
             <li><a href='Drink'>Drinks</a></li>
