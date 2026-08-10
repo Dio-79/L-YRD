@@ -21,7 +21,7 @@ export default function LoginPage() {
     e.preventDefault();
     const result = login(email, password);
     if (result !== null) {
-      setMessage(`Welcome, ${result.name}`);
+      setMessage("Welcome!");
       router.push("/products");
     } else {
       setMessage("Invalid email or password");

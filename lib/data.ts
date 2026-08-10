@@ -1,4 +1,6 @@
 import { Product, Customer} from "@/types/models";
+import db from '../lib/db';
+
 
 export const products: Product[] = [
     {
@@ -92,19 +94,18 @@ export const products: Product[] = [
 
 ];
 
-export const customers: Customer[] = [
-    {
-        userID: 1,
-        customerId: 1001,
-        name: "Jordan Diaz",
-        email: "jordan@example.com",
-        passwords: "password123",
-        phone: "403-555-0101",
-        address: "123 Main St",
-        loyaltypoints: 100,
-    },
-];
 
-export function login(email: string, passwords: string): Customer | null {
-  return customers.find((item) => item.email === email && item.passwords === passwords) ?? null;
+export async function login(email: string, password: string) {
+  const { rows } = await db.query(
+    'SELECT * FROM customers WHERE email = $1',
+    [email]
+  );
+
+  const user = rows[0];
+
+  if (!user || user.password !== password) {
+    return null;
+  }
+
+  return user;
 }
