@@ -1,0 +1,30 @@
+use this to manually run the docker holding postgre sql
+
+docker exec -it my-postgres psql -U postgres
+
+export const customers: Customer[] = [
+    {
+        userID: 1,
+        customerId: 1001,
+        name: "Jordan Diaz",
+        email: "jordan@example.com",
+        passwords: "password123",
+        phone: "403-555-0101",
+        address: "123 Main St",
+        loyaltypoints: 100,
+    },
+];
+
+CREATE TABLE customers(
+    UserID INT PRIMARY KEY,
+    customerID int,
+    Name VARCHAR(50),
+    Email VARCHAR(100),
+    Password VARCHAR(50),
+    Phone VARCHAR(13),
+    Address VARCHAR(100),
+    LoyaltyPoints int
+);
+
+INSERT INTO customers VALUES (1, 1001, 'Jordan Diaz', 'jordan@example.com', 'password123',
+'403-555-0101', '123 Main St', 100);
