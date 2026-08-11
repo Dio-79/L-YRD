@@ -96,16 +96,14 @@ export const products: Product[] = [
 
 
 export async function login(email: string, password: string) {
-  const { rows } = await db.query(
-    'SELECT * FROM customers WHERE email = $1',
-    [email]
+  const result = await db.query(
+    `
+    SELECT email, passwordFROM customers
+    WHERE email = $1
+      AND password = $2
+    `,
+    [email, password]
   );
 
-  const user = rows[0];
-
-  if (!user || user.password !== password) {
-    return null;
-  }
-
-  return user;
+  return result.rows[0] ?? null;
 }

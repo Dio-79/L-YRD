@@ -1,5 +1,9 @@
 use this to manually run the docker holding postgre sql
 
+
+
+docker run --name my-postgres -e POSTGRES_PASSWORD=supersecure -p 4999:5432 -d postgres
+
 docker exec -it my-postgres psql -U postgres
 
 export const customers: Customer[] = [
