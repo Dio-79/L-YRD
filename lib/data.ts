@@ -96,14 +96,14 @@ export const products: Product[] = [
 
 
 export async function login(email: string, password: string) {
-  const result = await db.query(
-    `
-    SELECT email, passwordFROM customers
-    WHERE email = $1
-      AND password = $2
-    `,
-    [email, password]
-  );
+  const response = await fetch('/api/login', {
+    method: 'POST', //fetch the results of the post request from 
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
+  const data = await response.json();
 
-  return result.rows[0] ?? null;
+  return data.user ?? null;
 }

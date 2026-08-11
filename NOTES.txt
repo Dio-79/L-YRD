@@ -32,3 +32,11 @@ CREATE TABLE customers(
 
 INSERT INTO customers VALUES (1, 1001, 'Jordan Diaz', 'jordan@example.com', 'password123',
 '403-555-0101', '123 Main St', 100);
+
+
+PGHOST=localhost
+PGPORT=4999
+PGUSER=postgres
+PGPASSWORD=supersecure
+PGDATABASE=postgres
+
